@@ -58,51 +58,6 @@ Before deploying, ensure you have:
 
 ---
 
-## ⚙️ GitHub Actions Workflow
-
-The workflow file: `.github/workflows/terraform.yml`
-
-```yaml
-name: Terraform Deploy to Azure
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  terraform:
-    name: Apply Terraform
-    runs-on: ubuntu-latest
-
-    env:
-      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
-      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
-        with:
-          terraform_version: 1.8.0
-
-      - name: Terraform Init
-        run: terraform init
-
-      - name: Terraform Validate
-        run: terraform validate
-
-      - name: Terraform Plan
-        run: terraform plan
-
-      - name: Terraform Apply
-        run: terraform apply -auto-approve
-```
-
----
 
 ## 🧱 Terraform Configuration Overview
 
@@ -119,7 +74,6 @@ Apply complete! Resources: 5 added, 0 changed, 0 destroyed.
 Outputs:
 website_url = "https://webappee7cb9d9c71881fc.z29.web.core.windows.net/"
 ```
-
 ---
 
 ## 🌍 Accessing Your Website
@@ -127,7 +81,8 @@ website_url = "https://webappee7cb9d9c71881fc.z29.web.core.windows.net/"
 Once the GitHub Action completes:
 1. Go to your **GitHub Actions > Terraform Deploy to Azure** workflow run.
 2. Check the **Terraform Apply** step output.
-3. Copy the **website_url** value — that’s your live hosted site! 🎉
+3. Copy the **website_url** value — that’s your live hosted site! 
+4. Live Link : https://webappee7cb9d9c71881fc.z29.web.core.windows.net/
 
 ---
 
