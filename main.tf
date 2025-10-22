@@ -4,28 +4,24 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "3.100.0"
     }
-    random = {
-      source  = "hashicorp/random"
-      version = "3.6.2"
-    }
   }
 }
+
 variable "location" {
   description = "Azure region for deployment"
   type        = string
-  default     = "centralindia" 
+  default     = "centralindia"
 }
+
 provider "azurerm" {
   features {}
 }
-
+resource "azurerm_resource_group" "webapp_rg" {
+  name     = "webapp-rg"
+  location = var.location
+}
 resource "random_id" "rand_id" {
   byte_length = 8
-}
-
-resource "azurerm_resource_group" "webapp_rg" {
-  name     = "webapp-rg-${random_id.rand_id.hex}"
-  location = var.location
 }
 
 resource "azurerm_storage_account" "webapp_storage" {
@@ -36,7 +32,7 @@ resource "azurerm_storage_account" "webapp_storage" {
   account_replication_type = "LRS"
 
   static_website {
-    index_document     = "index.html"
+    index_document = "index.html"
   }
 }
 
