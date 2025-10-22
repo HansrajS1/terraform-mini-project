@@ -117,7 +117,7 @@ Example output after apply:
 ```
 Apply complete! Resources: 5 added, 0 changed, 0 destroyed.
 Outputs:
-website_url = "https://webapp3b97158bab25ded3.z29.web.core.windows.net/"
+website_url = "https://webappee7cb9d9c71881fc.z29.web.core.windows.net/"
 ```
 
 ---
