@@ -27,6 +27,9 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
+      - name: Terraform Import Resource Group
+        run: terraform import azurerm_resource_group.webapp_rg /subscriptions/${{ secrets.ARM_SUBSCRIPTION_ID }}/resourceGroups/webapp-rg || true
+
       - name: Terraform Validate
         run: terraform validate
 
