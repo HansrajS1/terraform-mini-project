@@ -82,10 +82,14 @@ Once the GitHub Action completes:
 1. Go to your **GitHub Actions > Terraform Deploy to Azure** workflow run.
 2. Check the **Terraform Apply** step output.
 3. Copy the **website_url** value — that’s your live hosted site! 
-4. Live Link : https://webappee7cb9d9c71881fc.z29.web.core.windows.net/
+4. Output Link : https://webappee7cb9d9c71881fc.z29.web.core.windows.net/
 
 ---
+## 🌍 Output Link image 
 
+![](image.png)
+
+---
 ## 👨‍💻 Authors
 
 **By:**  
